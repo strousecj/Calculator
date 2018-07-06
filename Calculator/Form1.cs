@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Calculator;
 
 namespace Calculator
 {
+    
+
     public partial class frmCalculator : Form
     {
         private string input = "";
         private string operand1 = "";
         private string operand2 = "";
         private char operation;
-        private double result = 0;
+        private double result = 0.0;
 
         public frmCalculator()
         {
@@ -128,9 +131,11 @@ namespace Calculator
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            operand1 = input;
-            operation = '=';
-            input = "";
+            txtDisplay.Text = "";
+            operand2 = input;
+            result = Calculator.Calculate(operation, operand1, operand2);
+            txtDisplay.Text += result.ToString();
+            input = result.ToString();
         }
 
         private void btnDecimal_Click(object sender, EventArgs e)

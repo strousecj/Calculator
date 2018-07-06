@@ -8,3 +8,13 @@ C:\Users\Chandler\source\repos\Calculator\Calculator\obj\Debug\Calculator.csproj
 C:\Users\Chandler\source\repos\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
 C:\Users\Chandler\source\repos\Calculator\Calculator\obj\Debug\Calculator.exe
 C:\Users\Chandler\source\repos\Calculator\Calculator\obj\Debug\Calculator.pdb
+C:\Users\chandler.strouse\source\repos\Calculator\Calculator\bin\Debug\Calculator.exe.config
+C:\Users\chandler.strouse\source\repos\Calculator\Calculator\bin\Debug\Calculator.exe
+C:\Users\chandler.strouse\source\repos\Calculator\Calculator\bin\Debug\Calculator.pdb
+C:\Users\chandler.strouse\source\repos\Calculator\Calculator\obj\Debug\Calculator.csprojAssemblyReference.cache
+C:\Users\chandler.strouse\source\repos\Calculator\Calculator\obj\Debug\Calculator.frmCalculator.resources
+C:\Users\chandler.strouse\source\repos\Calculator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\Users\chandler.strouse\source\repos\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+C:\Users\chandler.strouse\source\repos\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\chandler.strouse\source\repos\Calculator\Calculator\obj\Debug\Calculator.exe
+C:\Users\chandler.strouse\source\repos\Calculator\Calculator\obj\Debug\Calculator.pdb
