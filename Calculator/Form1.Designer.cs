@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCalculator));
             this.btnOne = new System.Windows.Forms.Button();
             this.btnTwo = new System.Windows.Forms.Button();
             this.btnThree = new System.Windows.Forms.Button();
@@ -209,9 +210,9 @@
             // 
             this.btnZero.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnZero.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZero.Location = new System.Drawing.Point(19, 316);
+            this.btnZero.Location = new System.Drawing.Point(95, 316);
             this.btnZero.Name = "btnZero";
-            this.btnZero.Size = new System.Drawing.Size(146, 70);
+            this.btnZero.Size = new System.Drawing.Size(70, 70);
             this.btnZero.TabIndex = 13;
             this.btnZero.Text = "0";
             this.btnZero.UseVisualStyleBackColor = true;
@@ -221,7 +222,7 @@
             // 
             this.btnEquals.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnEquals.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEquals.Location = new System.Drawing.Point(247, 392);
+            this.btnEquals.Location = new System.Drawing.Point(171, 316);
             this.btnEquals.Name = "btnEquals";
             this.btnEquals.Size = new System.Drawing.Size(70, 70);
             this.btnEquals.TabIndex = 14;
@@ -235,7 +236,7 @@
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Location = new System.Drawing.Point(19, 392);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(108, 70);
+            this.btnClear.Size = new System.Drawing.Size(146, 70);
             this.btnClear.TabIndex = 15;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -245,11 +246,11 @@
             // 
             this.btnClearEntry.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnClearEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearEntry.Location = new System.Drawing.Point(133, 392);
+            this.btnClearEntry.Location = new System.Drawing.Point(171, 392);
             this.btnClearEntry.Name = "btnClearEntry";
-            this.btnClearEntry.Size = new System.Drawing.Size(108, 70);
+            this.btnClearEntry.Size = new System.Drawing.Size(146, 70);
             this.btnClearEntry.TabIndex = 16;
-            this.btnClearEntry.Text = "Clear Entry";
+            this.btnClearEntry.Text = "CE";
             this.btnClearEntry.UseVisualStyleBackColor = true;
             this.btnClearEntry.Click += new System.EventHandler(this.btnClearEntry_Click);
             // 
@@ -257,7 +258,7 @@
             // 
             this.btnDecimal.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnDecimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDecimal.Location = new System.Drawing.Point(171, 316);
+            this.btnDecimal.Location = new System.Drawing.Point(19, 316);
             this.btnDecimal.Name = "btnDecimal";
             this.btnDecimal.Size = new System.Drawing.Size(70, 70);
             this.btnDecimal.TabIndex = 17;
@@ -299,7 +300,10 @@
             this.Controls.Add(this.btnThree);
             this.Controls.Add(this.btnTwo);
             this.Controls.Add(this.btnOne);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCalculator";
+            this.Text = "Calculator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

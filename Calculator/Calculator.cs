@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Calculator
 {
     public class Calculator
-    {
+    { 
 
         public static double Calculate(char operation, string operand1String, string operand2String)
         {
@@ -26,10 +22,15 @@ namespace Calculator
                     return operand1 * operand2;
 
                 case '/':
+                    if(operand2 == 0)
+                    {
+                        return 0;
+                    }
+
                     return operand1 / operand2;
 
                 default:
-                    throw new InvalidOperationException("Error: That operation doesn not exist");
+                    throw new InvalidOperationException("Error: That operation does not exist");
             }
         }
     }
