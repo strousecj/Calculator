@@ -5,13 +5,6 @@ namespace Calculator
 {
     public partial class frmCalculator : Form
     {
-        private string input = "";      // user input, modified as user presses buttons to enter numbers
-        private string operand1 = "";   
-        private string operand2 = "";   
-        private char operation;
-        private double result = 0.0;    
-        private bool startNewCalculation = false;
-
         public frmCalculator()
         {
             InitializeComponent();
@@ -22,86 +15,70 @@ namespace Calculator
         // Called when a number button (0-9) or decimal button is pressed 
         private void NumberButton_Click(string number)
         {
-            if(startNewCalculation == true) // if the user has just pressed the equals button, remove previous calculation information
+            if(Calculator.StartNewCalculation == true) // if the user has just pressed the equals button, remove previous calculation information
             {
-                ClearAll();
-                startNewCalculation = false;
+                Calculator.ClearAll();
+                Calculator.StartNewCalculation = false;
             }
 
             txtDisplay.Text = "";
-            operand2 = "";
-            result = 0.0;
+            Calculator.ClearOperand2();
+            Calculator.ResetResult();
 
-            if (input == "0") // prevents numbers from displaying with leading zeros
+            if (Calculator.Input == "0") // prevents numbers from displaying with leading zeros
             {
-                input = number;
+                Calculator.Input = number;
             }
             else
             {
-                input += number;
+                Calculator.Input += number;
             }
-            txtDisplay.Text += input; // update display
+            txtDisplay.Text += Calculator.Input; // update display
         }
 
         // Called whenever one of the operation buttons is pressed (+,-,*,/)
         private void OperationButton_Click(char op)
         {
-            if (operand1 == "" && result == 0) // operand needs to have a value before continuing 
+            if (Calculator.IsOperand1Blank() && Calculator.Result == 0) // operand needs to have a value before continuing 
             {
-                operand1 = input;
+                Calculator.Operand1 = Calculator.Input;
             }
             else
             {
-                if (input != "") // if input is blank, then operand2 will be blank in the upcoming calculation
+                if (!Calculator.IsInputBlank()) // if input is blank, then operand2 will be blank in the upcoming calculation
                 {
                     EvaluateExpression();
                 }
             }
-            operation = op;
-            operand2 = "";
-            input = "";
-            startNewCalculation = false;
+            Calculator.Operation = op;
+            Calculator.ClearOperand2();
+            Calculator.ClearInput();
+            Calculator.StartNewCalculation = false;
         }
 
         // called when the equals button is pressed or to evaluate 
         private void EvaluateExpression()
         {
             txtDisplay.Text = "";
-            if (input != "")
+            if (!Calculator.IsInputBlank())
             {
-                operand2 = input;
+                Calculator.Operand2 = Calculator.Input;
             }
-            if (operation == '/' && operand2 == "0") // prevent divide by zero problems
+
+            if (Calculator.Operation == '/' && Calculator.Operand2 == "0") // prevent divide by zero problems
             {
-                ClearAll();
+                Calculator.ClearAll();
                 txtDisplay.Text = "Cannot divide by zero";
             }
             else
             {
-                result = Calculator.Calculate(operation, operand1, operand2);
-                txtDisplay.Text += result.ToString();   
-                operand1 = result.ToString();   // so the result can be used for another calculation
-                input = "";
+                Calculator.Result = Calculator.Calculate(Calculator.Operation, Calculator.Operand1, Calculator.Operand2);
+                txtDisplay.Text += Calculator.Result.ToString();   
+                Calculator.Operand1 = Calculator.Result.ToString();   // so the result can be used for another calculation
+                Calculator.ClearInput();
             }
-            startNewCalculation = true;
+            Calculator.StartNewCalculation = true;
         }
-
-        // called when the CE button is pressed, clear current entry only
-        private void ClearEntry()
-        {
-            txtDisplay.Text = "";
-            input = "";
-            result = 0.0;
-        }
-
-        // called when clear button is pressed, clears all previous calculations and input from the calculator
-        private void ClearAll()
-        {
-            ClearEntry();
-            operand1 = "";
-            operand2 = "";
-        }
-
 
         // Windows Forms Button Region
         private void btnOne_Click(object sender, EventArgs e)
@@ -176,7 +153,7 @@ namespace Calculator
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            if (operand1 != "") // will cause error if there are not 2 values for the calculation
+            if (!Calculator.IsOperand1Blank()) // will cause error if there are not 2 values for the calculation
             {
                 EvaluateExpression();
             }
@@ -184,19 +161,21 @@ namespace Calculator
 
         private void btnDecimal_Click(object sender, EventArgs e)
         {
-            if (!input.Contains(".")) { // prevent multiple decimal points in a number
+            if (!Calculator.Input.Contains(".")) { // prevent multiple decimal points in a number
                 NumberButton_Click(".");
             }
         }
 
         private void btnClearEntry_Click(object sender, EventArgs e)
         {
-            ClearEntry();
+            txtDisplay.Text = "";
+            Calculator.ClearEntry();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            ClearAll();
+            txtDisplay.Text = "";
+            Calculator.ClearAll();
         }
         // End Form Button Region
     }
